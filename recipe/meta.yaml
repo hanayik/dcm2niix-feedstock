@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - cmake
+    - make
     - git
     - libtool  # [not win]
     - {{ compiler("cxx") }}
