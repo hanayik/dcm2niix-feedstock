@@ -1,6 +1,6 @@
 {% set name = "dcm2niix" %}
-{% set version = "1.0.20240202" %}
-{% set sha256 = "ad8e4a5b97a682c32ef1d88283c15c7cb767c4092cb1754119f8e8b3d940fe91" %}
+{% set version = "1.0.20241208" %}
+{% set sha256 = "adf089c6a6949e5deb90ffe0d617d2995f34231713c7bccc7e6b034935ea1a51" %}
 
 package:
   name: {{ name|lower }}
@@ -22,6 +22,7 @@ requirements:
     - git
     - libtool  # [not win]
     - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
 
 test:
   commands:
