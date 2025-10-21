@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  name: dcm2niix
+  version: 1.0.20250506
+  sha256: 1b24658678b6c24141e58760dbea9fe2786ffdd736bcc37a36d9cdabc731bafa
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/rordenlab/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: ${{ sha256 }}
+  file_name: ${{ name }}-${{ version }}.tar.gz
+
+build:
+  number: 2
+  skip: win and vc<14
+
+requirements:
+  build:
+    - cmake
+    - make
+    - git
+    - if: not win
+      then: libtool
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+
+tests:
+  - script:
+      - dcm2niix -h
+
+about:
+  license: MIT
+  license_file: license.txt
+  summary: dcm2niix is a designed to convert neuroimaging data from the DICOM format to the NIfTI format.
+  description: dcm2niix is a designed to convert neuroimaging data from the DICOM format to the NIfTI format.
+  homepage: http://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage
+  repository: https://github.com/rordenlab/dcm2niix
+  documentation: https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii
+
+extra:
+  recipe-maintainers:
+    - kastman
+    - ningfei
+    - neurolabusc
+    - hanayik
+
