@@ -8,4 +8,5 @@ cmake ${CMAKE_ARGS} -DUSE_STATIC_RUNTIME:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=$P
 make install
 # copy license.txt from $SRC_DIR/dcm2niix-*/license.txt to $SRC_DIR/license.txt
 cd ..
-cp ../license.txt $SRC_DIR/license.txt
+ls -lh .
+cp license.txt $SRC_DIR/license.txt
